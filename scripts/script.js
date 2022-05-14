@@ -97,7 +97,7 @@ function load() {
       <p>${feature.properties.Notes}</p>
       <p>${feature.properties.Hours}</p>
       <p>${feature.properties.Enrollment}</p>
-      <p>${feature.properties.Cost}</p>
+      <p>${format(feature.properties.Cost)}</p>
       <p>${format(feature.properties.Finaid)}</p>`;
     console.log(popup)
 
