@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:  -1;
+}
+
+.marker {
+  background-image: url("https://drive.google.com/uc?id=1cyGIO7BMfMGsmMovH0c-A2MQac1aq0qP");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 500px;
+}
+
+.mapboxgl-popup-content {
+  text-align: left;
+  line-height: 1;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 11px;
+}
+
+.mapboxgl-popup-content h3 { color: rebeccapurple; }
+.mapboxgl-popup-content p { padding: .2em; margin: 0em; }
+
+/* “Lord Vader Hates Fluffy Animals” */
+a:link, a:visited, a:hover, a:focus, a:active { text-decoration: none; }
+a:link, a:visited { color: #000080; }
+a:hover { text-decoration: underline; }
+a.no-focus:focus { outline: none; }
+
+h1 { color: #000080; margin: 1%; z-index: 0; }
