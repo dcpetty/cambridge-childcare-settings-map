@@ -2418,6 +2418,7 @@ const geojson = {
         Hours: "",
         Enrollment: "",
         Cost: "",
+        Finaid: "",
       },
       geometry: {
         type: "Point",

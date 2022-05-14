@@ -38,6 +38,7 @@ function formatAnchor(prefix, text, extra) {
  * e-mail addresses, or nothing.
  */
 function format(text) {
+  if (text == undefined) return '';
   return text.split(/\s/).map(function (element) {
     if (isUri(element)) {
       return formatAnchor('', `${element}`, ` target="_blank"`);
