@@ -1,3 +1,4 @@
+/* https://docs.mapbox.com/ styles */
 body {
   margin: 0;
   padding: 0;
@@ -31,13 +32,24 @@ body {
   font-size: 11px;
 }
 
+/* webpage styles */
+body {
+  font-family: "Lexend Deca", sans-serif;
+}
+h1 { color: navy; margin: 1%;  }
+/* https://stackoverflow.com/a/689290/17467335 */
+footer {
+  position: absolute; bottom: 0; width: 100%; min-height: 4em; 
+  font-size: small;  
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* popup styles */
 .mapboxgl-popup-content h3 { color: rebeccapurple; }
 .mapboxgl-popup-content p { padding: .2em; margin: 0em; }
 
 /* “Lord Vader Hates Fluffy Animals” */
 a:link, a:visited, a:hover, a:focus, a:active { text-decoration: none; }
-a:link, a:visited { color: #000080; }
+a:link, a:visited { color: navy; }
 a:hover { text-decoration: underline; }
 a.no-focus:focus { outline: none; }
-
-h1 { color: #000080; margin: 1%; z-index: 0; }
