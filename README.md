@@ -1,6 +1,6 @@
 # cambridge-childcare-settings-map
 
-This is **A Map of Childcare Settings in Cambridge, MA** by Charoltte H. Petty. POOP!
+This is **A Map of Childcare Settings in Cambridge, MA** by Charoltte H. Petty.
 
 <hr>
 
