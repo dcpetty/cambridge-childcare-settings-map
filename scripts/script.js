@@ -44,7 +44,7 @@ function format(text) {
       return formatAnchor('', `${element}`, ` target="_blank"`);
     }
     if (isEmail(element)) {
-      return formatAnchor('mailto:', `${element}`, ``);
+      return formatAnchor('mailto:', `${element}`, '');
     }
     return element;
     }).join(' ');
@@ -76,6 +76,7 @@ function load() {
     // create a HTML element for each feature
     const el = document.createElement("div");
     el.className = "marker";
+    el.title = feature.properties.Name;
 
     el.style.backgroundImage = `url(${images.default})`;
     if (images[feature.properties.Type] != undefined) {
@@ -83,7 +84,7 @@ function load() {
     }
     el.style.backgroundImage = `url('./images/favicon.ico')`; /* NRGL! */
 
-    // create popup
+    // create popup HTML
     popup = `
       <h3>${feature.properties.Name}</h3>
       <p>${feature.properties.Type}</p>
