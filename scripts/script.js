@@ -1,4 +1,7 @@
-console.log(window.mapboxgl)
+/* This is the JavaScript file that loads the *Map of Childcare Settings in Cambridge, MA*
+ * 
+ * Repository: https://github.com/dcpetty/cambridge-childcare-settings-map
+ */
 
 /* Return true if text is a URI, false otherwise.
  */
@@ -49,12 +52,13 @@ function format(text) {
     return element;
     }).join(' ');
 }
-/** Return x as a string rounded to d decimal places. */
+/* Return x as a string rounded to d decimal places. */
 function rounded(x, d=0) {
   // https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/number/tofixed
   return Number.parseFloat(x).toFixed(d);
 }
-/** Return zoom level based on viewport width and height.
+/* Return zoom level based on viewport width and height and
+ * [ wm, hm, ] dimensions of Cambridge.
  */
 function zoom() {
   // https://docs.mapbox.com/help/glossary/zoom-level/
@@ -169,7 +173,7 @@ function load() {
       <p>${format(feature.properties.Finaid)}</p>`;
     console.log(popup)
 
-    // make a marker for each feature and add to the map
+    // make a marker for each feature and add to map
     const marker = new window.mapboxgl.Marker(el)
       .setLngLat(feature.geometry.coordinates)
       .setPopup(
@@ -178,8 +182,7 @@ function load() {
       )
       .addTo(map);
   }
-  zoom();
-  console.log(rounded(1234.5679, 0));
+  zoom(); // for logging only
   return false;
 }
 
