@@ -57,6 +57,7 @@ function rounded(x, d=0) {
 /** Return zoom level based on viewport width and height.
  */
 function zoom() {
+  // https://docs.mapbox.com/help/glossary/zoom-level/
   const levels = {
      0: 59959.436,
      1: 29979.718,
