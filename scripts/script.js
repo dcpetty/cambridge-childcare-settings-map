@@ -83,6 +83,16 @@ function zoom() {
     22: 0.014,
   };
   console.log(levels);
+  /* Cambridge dimensions:
+   * 
+   * top: 42.4038, -71.1339
+   * right: 42.3691, -71.0642
+   * bottom: 42.3528, -71.1200
+   * left: 42.3866, -71.1605
+   * 
+   * width: 42.3783, -71.1605 to 42.3783, -71.0642 = 7910m
+   * height: 42.4038, -71.1124 to 42.3528, -71.1124 = 5671m
+   */
   const [ wm, hm, ] = [ 7910, 5671, ];
   const viewport = document.getElementById('map').getBoundingClientRect();
   const [ wp, hp, ] = [ viewport.width, viewport.height, ];
