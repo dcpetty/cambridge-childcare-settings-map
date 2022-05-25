@@ -49,6 +49,61 @@ function format(text) {
     return element;
     }).join(' ');
 }
+/** Return x as a string rounded to d decimal places. */
+function rounded(x, d=0) {
+  // https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/number/tofixed
+  return Number.parseFloat(x).toFixed(d);
+}
+/** Return zoom level based on viewport width and height.
+ */
+function zoom() {
+  const levels = {
+     0: 59959.436,
+     1: 29979.718,
+     2: 14989.859,
+     3: 7494.929,
+     4: 3747.465,
+     5: 1873.732,
+     6: 936.866,
+     7: 468.433,
+     8: 234.217,
+     9: 117.108,
+    10: 58.554,
+    11: 29.277,
+    12: 14.639,
+    13: 7.319,
+    14: 3.660,
+    15: 1.830,
+    16: 0.915,
+    17: 0.457,
+    18: 0.229,
+    19: 0.114,
+    20: 0.057,
+    21: 0.029,
+    22: 0.014,
+  };
+  console.log(levels);
+  const [ wm, hm, ] = [ 7910, 5671, ];
+  const viewport = document.getElementById('map').getBoundingClientRect();
+  const [ wp, hp, ] = [ viewport.width, viewport.height, ];
+  const scale = 1.0
+  console.log(`${wm}x${hm} m`);
+  console.log(`${wp}x${hp} px`);
+  console.log(`${rounded(wm / wp, 2)}x${rounded(hm / hp, 2)} m/px`);
+  let level = 0;
+  for (let i = 0; i < Object.keys(levels).length; i++) {
+    let [ key, val, ] = [i, levels[i], ]
+    console.log(`${key}:${rounded(val, 3)} ${rounded(wm / val, 2)}x${rounded(hm / val, 2)}`)
+    if (wp < hp && wm / val < wp * scale || wp >= hp && hm / val < hp * scale)
+        level = i;
+  }
+  let [ key, val, ] = [level, levels[level], ]
+  console.log(`zoom: ${level} `
+    + `(${wp < hp ? 'W' : 'H'}: `
+    + `${rounded(wp < hp ? wm / val : hm / val)}px`
+    + ` < ${wp < hp ? wp : hp}px)`);
+  return level;
+}
 
 /* Initialize all map and marker data on window loading.
  */
@@ -67,8 +122,9 @@ function load() {
   const map = new window.mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/chpetty/cl2r2rdru001y14p7luef1oha",
-    center: [-71.1099081, 42.3751374],
-    zoom: 12,
+    // center: [-71.1099081, 42.3751374],
+    center: [-71.1124, 42.3783],
+    zoom: zoom(),
   });
 
   // add markers to map
@@ -111,6 +167,8 @@ function load() {
       )
       .addTo(map);
   }
+  zoom();
+  console.log(rounded(1234.5679, 0));
   return false;
 }
 
