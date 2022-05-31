@@ -33,7 +33,7 @@ function splitPunctuation(text) {
  * - any trailing punctuation added after the anchor link.
  */
 function formatAnchor(prefix, text, extra) {
-  [ href, punctuation, ] = splitPunctuation(text);
+  let [ href, punctuation, ] = splitPunctuation(text);
   const wrapped = href.replace(/\//g, '/&#8203;').replace(/-/g, '-&#8203;');
   return `<a class="no-focus" href="${prefix}${href}"${extra}>${wrapped}</a>${punctuation}`;
 }
@@ -153,7 +153,7 @@ function load() {
     if (images[feature.properties.Type] != undefined) {
       el.style.backgroundImage = `url(${images[feature.properties.Type]})`;
     }
-    el.style.backgroundImage = `url('./images/favicon.ico')`; /* NRGL! */
+    el.style.backgroundImage = `url('./favicon.ico')`; /* NRGL! */
 
     // create popup HTML
     popup = `
