@@ -153,7 +153,7 @@ function load() {
     if (images[feature.properties.Type] != undefined) {
       el.style.backgroundImage = `url(${images[feature.properties.Type]})`;
     }
-    el.style.backgroundImage = `url('./images/favicon.ico')`; /* NRGL! */
+    //el.style.backgroundImage = `url('./images/favicon.ico')`; /* NRGL! */
 
     // create popup HTML
     popup = `
